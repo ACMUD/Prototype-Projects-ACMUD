@@ -1,0 +1,160 @@
+
+
+
+% some color definitions
+\definecolor{white}{RGB}{255,255,255}
+\definecolor{blue}{RGB}{34,83,172}
+\definecolor{gray}{RGB}{75,86,88}
+\definecolor{lightblue}{RGB}{160,190,240}
+\definecolor{lightgray}{RGB}{172,198,204}
+\definecolor{extralightgray}{RGB}{228,237,239}
+\definecolor{commentcolor}{rgb}{0,.5,0}
+\definecolor{stringcolor}{rgb}{.62,.125,.94}
+\definecolor{commentcolor}{rgb}{0,.5,0}
+\definecolor{stringcolor}{rgb}{.62,.125,.94}
+% COLORES personales---------------------------------------------------
+    \definecolor{colortitulo}{RGB}{11,17,79} % 
+    \definecolor{colordominante}{RGB}{11,17,79}
+    \definecolor{colordominanteF}{RGB}{219,68,14}
+    \definecolor{colordominanteD}{RGB}{137,46,55}
+    \definecolor{mostaza}{RGB}{231,196,25}
+    \definecolor{amarilloM}{RGB}{248,199,90}
+    \definecolor{amarilloD}{RGB}{251,237,121}
+    \definecolor{azulF}{rgb}{.0,.0,.3}
+    \definecolor{grisD}{rgb}{.3,.3,.3}
+    \definecolor{grisF}{rgb}{.6,.6,.6}
+    \definecolor{grisamarillo}{RGB}{248,248,245} 
+    \definecolor{miverde}{RGB}{44,162,67}
+    \definecolor{verdep}{RGB}{166,206,58}
+    \definecolor{verdencabezado}{RGB}{166,206,58}
+    \definecolor{verdeF}{RGB}{5,92,8}
+    \colorlet{mygray}{black!20}
+    \newcommand{\verde}{\color{miverde}}
+    \definecolor{AzulLT}{RGB}{120,133,246}
+    \definecolor{numeSec}{RGB}{73, 9, 59}
+% Fin COLORES persona
+
+
+%%%% paquetes -------------
+
+\usepackage{pstricks}
+\usepackage{xparse}
+\usepackage{tcolorbox} 
+\tcbuselibrary{skins,breakable}                    % Librerías tcolorbox
+\usetikzlibrary{positioning,shadows,backgrounds,calc}%
+\usepackage{tikzpagenodes}
+\usepackage{xargs}                                 % Comandos con opciones
+% \usepackage[small,bf]{caption}
+% \usepackage[breaklinks,colorlinks=true, pdfstartview=FitV, linkcolor=azulF, citecolor=azulF, urlcolor=azulF]{hyperref}
+\usepackage{amsmath,amssymb,amsfonts,latexsym,cancel,stmaryrd}%
+\usepackage[ruled,,vlined,lined,linesnumbered,algochapter]{algorithm2e}
+\usepackage{multicol}
+\usepackage{framed}
+\usepackage{titletoc}
+\usepackage{calc}
+\usepackage{colortbl} 
+\usepackage{tabularx}
+\usepackage{fancyvrb}
+\usepackage{array}
+\usepackage{wasysym}
+\usepackage{supertabular}
+\usepackage{booktabs}
+\usepackage[shortlabels]{enumitem}
+
+
+% fin paqueyes ----
+
+% Fuentes
+%----------------------------------------------------------------------------------------
+% Comandos para fuentes especiales
+\newcommandx*{\fnte}[4][1=pag,2=9,3=n]{{\color{AzulLT}\fontfamily{#1}
+\fontsize{#2}{1}\fontshape{#3}\selectfont{#4}}}
+
+\newcommandx*{\fntb}[4][1=pag,2=9,3=n]{{\color{AzulLT}\fontfamily{#1}\fontsize{#2}{1}\fontseries{b}\fontshape{#3}\selectfont{#4}}}
+
+\newcommandx*{\fntg}[4][1=pag,2=9,3=n]{{\color{AzulLT}\fontfamily{#1}\fontsize{#2}{1}\fontshape{#3}\selectfont{#4}}}
+
+\newcommand{\fhv}[2]{{\fontfamily{pag}\fontsize{#1}{1}\selectfont{#2}}}
+
+\newcommand{\fhvb}[2]{{\fontfamily{pag}\fontseries{b}\fontsize{#1}{1}\selectfont{#2}}}
+% Fin fuentes------------------------------------------
+
+%********************************** DISENO *************************************
+
+
+
+%-------------------CONTENIDO -----------------------------------------------------
+% \definecolor{mycolorA}{RGB}{0,133,202}  % 
+% \definecolor{mycolorB}{RGB}{166,206,58} % 
+
+% % patching of \tableofcontents to use sans serif font for the tile
+% \patchcmd{\tableofcontents}{\contentsname}{\contentsname}{}{}
+% % patching of \@part to typeset the part number inside a framed box in its own line
+% % and to add color
+% \makeatletter
+% \patchcmd{\@part}
+%   {\addcontentsline{toc}{part}{\thepart\hspace{1em}#1}}
+%   {\addtocontents{toc}{\protect\addvspace{20pt}}
+%     \addcontentsline{toc}{part}{\huge{\protect\color{colordominante}%
+%       \setlength\fboxrule{2pt}\protect\Circle{%
+%         \hfil\thepart\hfil%
+%       }%
+%     }\\[2ex]\color{colordominante}\sffamily\large#1}}{}{}
+% \makeatother
+
+% % this is the environment used to typeset the chapter entries in the ToC
+% % it is a modification of the leftbar environment of the framed package
+% \renewenvironment{leftbar}
+%   {\def\FrameCommand{\hspace{6em}%
+%     {\color{numeSec}\vrule width 2pt depth 6pt}\hspace{1em}}%
+%     \MakeFramed{\parshape 1 0cm \dimexpr\textwidth-6em\relax\FrameRestore}\vskip2pt%
+%   }
+%  {\endMakeFramed}
+
+% % using titletoc we redefine the ToC entries for parts, chapters, sections, and subsections
+% \titlecontents{part}
+%   [0em]{\centering}
+%   {\contentslabel}
+%   {}{}
+% \titlecontents{chapter}
+%   [0em]{\vspace*{2\baselineskip}}
+%   {\parbox{4.5em}{%
+%     \hfill\Huge\bfseries\color{mycolorA}\thecontentspage}%
+%   \vspace*{-2.3\baselineskip}\leftbar{\fhvb{12}{\chaptername~\thecontentslabel}}\\}
+%   {}{\endleftbar}
+% \titlecontents{section}
+%   [8.4em]
+%   {\sffamily\contentslabel{3em}}{}{}
+%   {\hspace{0.5em}\nobreak\itshape\color{mycolorA}\contentspage}
+% \titlecontents{subsection}
+%   [8.4em]
+%   {\sffamily\contentslabel{3em}}{}{}  
+%   {\hspace{0.5em}\nobreak\itshape\color{mycolorA}\contentspage}
+
+% Fin Contenido 
+
+%-------------------------------------------------------------------------------------
+%	Numeración de las secciones -- en el margen
+%----------------------------------------------------------------------------------------
+
+\makeatletter
+\renewcommand{\@seccntformat}[1]{\llap{\textcolor{AzulLT}{\csname the#1\endcsname}\hspace{1em}}}                    
+\renewcommand{\section}{\@startsection{section}{1}{\z@}
+{-4ex \@plus -1ex \@minus -.4ex}
+{1ex \@plus.2ex }
+{\normalfont\large\sffamily\bfseries}}
+\renewcommand{\subsection}{\@startsection {subsection}{1}{\z@}
+{-3ex \@plus -0.1ex \@minus -.4ex}
+{0.5ex \@plus.2ex }
+{\normalfont\sffamily\bfseries}}
+\renewcommand{\subsubsection}{\@startsection {subsubsection}{3}{\z@}
+{-2ex \@plus -0.1ex \@minus -.2ex}
+{0.2ex \@plus.2ex }
+{\normalfont\small\sffamily\bfseries}}                        
+\renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}
+{-2ex \@plus-.2ex \@minus .2ex}
+{0.1ex}
+{\normalfont\small\sffamily\bfseries}}
+\makeatother
+% Fin numeración secciones
+

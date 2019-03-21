@@ -1,19 +1,24 @@
 \usepackage{epsfig,pict2e}
-\usepackage{fancyhdr}
+% \usepackage{fancyhdr}
 \usepackage[tc]{titlepic}
 \usepackage{amsmath,amsfonts,amssymb,relsize,geometry}
 \usepackage[tikz]{bclogo}
 \usepackage{titling}
-\usepackage{fancyhdr}
-\pagestyle{fancy}
+% \usepackage{fancyhdr}
+% \pagestyle{fancy}
 \usepackage[absolute,overlay]{textpos}
-\usepackage[english]{babel}
-\usepackage{blindtext}
+% \usepackage{blindtext}
+\usepackage{xcolor}
+
+%%header-----
 
 \chead{
 \tikz[remember picture,overlay] \node[opacity=1,inner sep=-10pt,anchor=north] at (current page.north){\includegraphics[width=\paperwidth]{Estilos/img/bordeSup.png}};
 }
 
+%%%----footer
 \cfoot{
 \tikz[remember picture,overlay] \node[opacity=1,inner sep=0pt,anchor=south] at (current page.south){\includegraphics[width=\paperwidth]{Estilos/img/BorderInf.png}};
 }
+
+
