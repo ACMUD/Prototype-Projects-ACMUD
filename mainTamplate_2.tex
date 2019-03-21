@@ -1,18 +1,34 @@
-\documentclass[hoptionsi]{acmart}
+\documentclass[hoptionsi ,12pt]{acmart}
 \usepackage[utf8]{inputenc}
+% \usepackage[english,spanish]{babel}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{graphicx}
 \usepackage{float}
+% \usepackage{helvet}
+\linespread{1.5}  
+% \usepackage[full]{textcomp}
+\usepackage{xcolor} 
+\usepackage{url}
+\setlength{\textwidth}{150mm}
+\setlength{\textheight}{175mm}
+\setlength{\oddsidemargin}{10mm}
+\setlength{\evensidemargin}{10mm}
+\setlength{\topmargin}{15mm}
+
 \usepackage{Estilos/Style}
 
-% \input{Estilos/Estilos.tex}
+\input{Estilos/Estilos.tex}
 
 \input{heading.tex}
 
+\raggedbottom
 \begin{document}
 
 \maketitle
+% \frontmatter
 \clearpage
 \tableofcontents
-
 \input{contenido/introduccion.tex}
 \input{contenido/justificacion.tex}
 \input{contenido/alcance.tex}
